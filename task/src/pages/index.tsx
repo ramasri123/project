@@ -1,10 +1,16 @@
 import react from "react"
 import Card from "../pages/Card/index"
+import Signup from "./Signup";
+import Signin from "./Signin"
+import Home from "./Home"
 
 const task = () => {
   return(
     <div>
-      <Card/>
+      {/* <Card/> */}
+      {/* <Signup/> */}
+      {/* <Signin/> */}
+      <Home/>
     </div>
   )
 };
