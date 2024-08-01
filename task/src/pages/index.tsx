@@ -8,9 +8,9 @@ const task = () => {
   return(
     <div>
       {/* <Card/> */}
-      {/* <Signup/> */}
+      <Signup/>
       {/* <Signin/> */}
-      <Home/>
+      {/* <Home/> */}
     </div>
   )
 };

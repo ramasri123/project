@@ -2,7 +2,8 @@ import Link from 'next/link'
 import React, { FormEvent, useState } from 'react'
 import { useRouter } from 'next/router'
 import  auth  from '../../../firebase'
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
+import  {signInWithEmailAndPassword, sendEmailVerification}  from 'firebase/auth'
+import Home from '../Home'
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -15,12 +16,12 @@ const Signup = () => {
         setError(null);
 
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
             await sendEmailVerification(userCredential.user);
-            console.log('Account created successfully and verification email sent.');
+            console.log('Login Sucessfully');
 
             // Redirect to signin page after successful signup
-            router.push('/Signin');
+            router.push('/Home');
         } catch (err: any) {
             console.error("Error creating account:", err);
             setError(err.message);
@@ -29,7 +30,7 @@ const Signup = () => {
 
     return (
         <div>
-            <div className=" bg-base-300 min-h-screen">
+            <div className=" bg-white min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <form className="card-body" onSubmit={handleSignup}>
